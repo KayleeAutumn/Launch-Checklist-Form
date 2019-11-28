@@ -40,22 +40,20 @@ window.addEventListener("load", function() {
 
    //user imput validation
    formSubmit.addEventListener("click", function() {
-      console.log (document.querySelector("input[name=pilotName]").value)
-      pilotName = document.querySelector("input[name=pilotName]").value;
-      copilotName = document.querySelector("input[name=copilotName]").value;
-      fuelLevel = document.querySelector("input[name=fuelLevel]").value;
-      cargoMass = document.querySelector("input[name=cargoMass]").value;
+      pilotName = document.querySelector("input[name=pilotName]");
+      copilotName = document.querySelector("input[name=copilotName]");
+      fuelLevel = document.querySelector("input[name=fuelLevel]");
+      cargoMass = document.querySelector("input[name=cargoMass]");
       console.log("get" +pilotName + copilotName + fuelLevel +cargoMass)
       
-      if (pilotName === "" || copilotName === "" || fuelLevel === "" || cargoMass === "") {
+      if (pilotName.value === "" || copilotName.value === "" || fuelLevel.value === "" || cargoMass.value === "") {
          alert("All fields are required!");
          // stop the form submission
          event.preventDefault();
          console.log("oops")
       }
       //(typeof pilotName.value) !== String || (typeof copilotName.value) !== String || 
-         console.log (typeof pilotName)
-      if ((typeof pilotName) !== "string" || (typeof copilotName) !== "string" || isNaN(fuelLevel) || isNaN(cargoMass)) {
+      if (isNaN(fuelLevel.value) || isNaN(cargoMass.value)) {
          alert("Check data types before submiting");
          // stop the form submission
          event.preventDefault();
